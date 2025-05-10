@@ -1,0 +1,89 @@
+<!DOCTYPE html><html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mis 15 Años - Alexia</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #fff0f5;
+      color: #4b2e2e;
+      text-align: center;
+    }
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3em;
+      color: #d48c9c;
+      margin-top: 30px;
+    }
+    .message {
+      font-size: 1.2em;
+      margin: 20px auto;
+      max-width: 600px;
+      padding: 10px 20px;
+      color: #6e3e47;
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 12px;
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px;
+      gap: 15px;
+    }
+    .gallery img {
+      width: 300px;
+      max-width: 90vw;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: transform 0.2s;
+      cursor: pointer;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0; top: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.8);
+      align-items: center;
+      justify-content: center;
+    }
+    .lightbox img {
+      max-width: 90%;
+      max-height: 80%;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Mis 15 Años</h1>
+  <div class="message">
+    Queremos compartir contigo muchos momentos, recuerdos y aventuras en la vida de Alexia ❤️
+  </div>  <div class="gallery" id="gallery">
+    <!-- Aquí van las fotos -->
+    <img src="https://i.imgur.com/u7vsfQ9.jpg" alt="Foto 1">
+    <img src="https://i.imgur.com/GkWhmZe.jpg" alt="Foto 2">
+    <img src="https://i.imgur.com/NWyz25I.jpg" alt="Foto 3">
+    <!-- Agrega más imágenes según sea necesario -->
+  </div>  <div class="lightbox" id="lightbox" onclick="this.style.display='none'">
+    <img id="lightbox-img" src="" alt="preview">
+  </div>  <script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    document.querySelectorAll('.gallery img').forEach(img => {
+      img.onclick = () => {
+        lightboxImg.src = img.src;
+        lightbox.style.display = 'flex';
+      };
+    });
+  </script></body>
+</html>
